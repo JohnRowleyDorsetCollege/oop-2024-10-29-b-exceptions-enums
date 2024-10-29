@@ -10,9 +10,9 @@ namespace oop_2024_10_29_b_exceptions.models
     {
         public static void Run()
         {
-
+            CallPrintColour();
             //Console.WriteLine("ExceptionDriver");
-           
+
             IOExceptionDemo();
             ArgumentNullExceptionDemo(); // new code will start from here
             InvalidOperationExceptionDemo();
@@ -52,7 +52,37 @@ namespace oop_2024_10_29_b_exceptions.models
             }
 
         }
+       public static void CallPrintColour()
+        {
+            try
+            {
+                PrintColour("GreeN");
+            }
+            catch(ArgumentNullException ex)
+            {
+                Console.WriteLine($"Print Colour cannot be null");
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine($"Print Colour not valid\t : [{ex.Message}]");
+            }
+           
+        }
+        public static void PrintColour(string colour)
+        {
+            if (colour == null)
+            {
+                throw new ArgumentNullException(nameof(colour), "Colour cannot be null");
+            }
 
+            List<string> validColours = new List<string>() { "red", "green", "orange" };
+
+            if (!validColours.Contains(colour.ToLower()))
+            {
+                throw new ArgumentOutOfRangeException(nameof(colour), "Colour must be red, green, orange");
+            }
+            Console.WriteLine($"The chosen colour is {colour}");
+        }
         public static void PrintMessage(string message)
         {
             if (message == null)
