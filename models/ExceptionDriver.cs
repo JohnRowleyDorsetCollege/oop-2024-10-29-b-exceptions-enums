@@ -12,12 +12,55 @@ namespace oop_2024_10_29_b_exceptions.models
         {
 
             //Console.WriteLine("ExceptionDriver");
+           
+            IOExceptionDemo();
+            ArgumentNullExceptionDemo(); // new code will start from here
             InvalidOperationExceptionDemo();
             ArgumentOutOfRangeExceptionDemo();
             FormatExceptionDemo();
             DivideByZeroExceptionDemo();
             IndexOutOfRangeExceptionDemo();
             NullReferenceExceptionDemo();
+        }
+       
+        public static void IOExceptionDemo()
+        {
+
+            string filePath = "this-file-does-not-exist.txt";
+
+
+            try
+            {
+                string content = File.ReadAllText(filePath);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"IOException\t caught:\t [ {ex.Message} ]");
+            }
+
+        }
+
+        public static void ArgumentNullExceptionDemo()
+        {
+            try
+            {
+                PrintMessage(null);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"ArgumentNullException\t caught:\t [ {ex.Message} ]");
+            }
+
+        }
+
+        public static void PrintMessage(string message)
+        {
+            if (message == null)
+            {
+                throw new ArgumentNullException(nameof(message), "Message cannot be null");
+
+            }
+            Console.WriteLine("message");
         }
 
         public static void InvalidOperationExceptionDemo()
