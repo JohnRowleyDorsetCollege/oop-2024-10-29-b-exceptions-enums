@@ -3,4 +3,5 @@ using oop_2024_10_29_b_exceptions.models;
 
 // Console.WriteLine("Exception Tutorial");
 
-ExceptionDriver.Run();
+EnumDriver.Run();
+// ExceptionDriver.Run();
