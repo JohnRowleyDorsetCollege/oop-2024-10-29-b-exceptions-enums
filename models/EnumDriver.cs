@@ -15,6 +15,25 @@ namespace oop_2024_10_29_b_exceptions.models
             CustomStartingValueDemo();
             DemonstrateExplicitEnumValue();
             CallHandleLight();
+            DemoCustomDisplayNames();
+            OrderDemo();
+
+        }
+        public static void  OrderDemo()
+        {
+            Order myOrder  = new Order();
+
+            var status = Order.OrderStatus.Pending;
+          
+        }
+
+        public static void DemoCustomDisplayNames()
+        {
+            Console.WriteLine($"I want to pay by {PaymentMethod.CreditCard}");
+            Console.WriteLine($"I want to pay by {PaymentMethod.PayPal}");
+            Console.WriteLine($"I want to pay by {PaymentMethod.BankTransfer.ToString()}");
+
+          
 
         }
         public static void DayOfWeekDemo()

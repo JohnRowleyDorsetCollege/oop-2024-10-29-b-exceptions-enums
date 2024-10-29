@@ -3,5 +3,6 @@ using oop_2024_10_29_b_exceptions.models;
 
 // Console.WriteLine("Exception Tutorial");
 
-EnumDriver.Run();
+StringFormatDriver.Run();
+//EnumDriver.Run();
 // ExceptionDriver.Run();

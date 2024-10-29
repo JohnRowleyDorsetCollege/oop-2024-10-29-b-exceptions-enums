@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,24 @@ namespace oop_2024_10_29_b_exceptions.models
         Yellow,
         Green,
         Unknown
+    }
+
+    public enum PaymentMethod
+    {
+        [Description("Credit Card")]
+        CreditCard,
+        PayPal,
+        [Description("Bank Transfer")]
+        BankTransfer
+    }
+
+    public class Order
+    {
+        public enum OrderStatus
+        {
+            Pending, Shipped, Delivered, Cancelled
+        }
+        public OrderStatus Status { get; set; }
     }
 
 
